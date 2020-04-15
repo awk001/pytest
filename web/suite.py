@@ -1,10 +1,16 @@
-import unittest,os
+import os
+import unittest
+
 from HTMLTestRunner import HTMLTestRunner
 
-
+suite  = unittest.TestSuite()
+# suite.addTest(Skip('test_3'))
+# suite.addTest(Skip('test_1'))
+# suite.addTest(Skip('test_2'))
+# case  = [Skip('test_3'),Skip('test_2'),Skip('test_1')]
+# suite.addTests(case)
 # test_dir = './'
 # discover = unittest.defaultTestLoader.discover(start_dir=test_dir,pattern='sk*.py')
-suite  = unittest.TestSuite()
 report_path = './report/'
 report_file=report_path+'report.html'
 report_name='测试报告'
@@ -15,7 +21,7 @@ if not os.path.exists(report_path):
 else:
     pass
 with open(report_file,'wb') as report:
-    suite.addTests(unittest.TestLoader().loadTestsFromName('test10_uinttest_Requests.TestLogin.test_loginSuccess'))
+    suite.addTests(unittest.TestLoader().loadTestsFromName('skip.Skip.test_2'))
     runner = HTMLTestRunner(stream=report,title=report_title,description=report_desc)
     runner.run(suite)
 report.close()

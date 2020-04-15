@@ -1,4 +1,5 @@
-import pymysql,unittest
+import pymysql
+
 
 # 打开数据库连接
 class pdbc:

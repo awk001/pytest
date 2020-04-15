@@ -1,10 +1,13 @@
 # 1.导包 UnitTest
-from selenium import webdriver
-import unittest,requests,pymysql
+import requests
+import unittest
 from time import *
+
 from base.interface.sql import *
+from selenium import webdriver
+
+
 # 2.新建测试类
-from HTMLTestRunner import HTMLTestRunner
 
 
 class TestLogin(unittest.TestCase):

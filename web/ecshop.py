@@ -1,8 +1,14 @@
-import ddt as ddt
 from selenium import webdriver
 from time import *
-import unittest, os, yaml
-from ddt import ddt, unpack, file_data, data
+import unittest, yaml
+from ddt import ddt, file_data
+import unittest
+import yaml
+from time import *
+
+from ddt import ddt, file_data
+from selenium import webdriver
+
 
 # 添加配置
 # option = webdriver.ChromeOptions

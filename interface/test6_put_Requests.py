@@ -11,7 +11,6 @@
 '''
 
 # 1.导包
-import json
 
 import requests
 # 2.调用post

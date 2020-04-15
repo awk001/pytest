@@ -14,6 +14,7 @@
 import json
 
 import requests
+
 # 2.调用post
 # 请求url
 url ='http://apis.juhe.cn/cook/query.php'
@@ -35,10 +36,26 @@ data = {
         ]}
 # 使用json格式
 requests_post = requests.post(url=url, json=data, headers=header)
+'''
+url: http://apis.juhe.cn/cook/query.php
+状态码： 200
+cookies： <RequestsCookieJar[<Cookie aliyungf_tc=AQAAAHgAmkO0owoA/ulQAUjVtxEVMWHz for apis.juhe.cn/>]>
+内容： b'{"resultcode":"101","reason":"\xe9\x94\x99\xe8\xaf\xaf\xe7\x9a\x84\xe8\xaf\xb7\xe6\xb1\x82KEY","result":null,"error_code":10001}'
+'''
+# 使用data格式
+# requests_post = requests.post(url=url, data=data, headers=header)
+'''
+url: http://apis.juhe.cn/cook/query.php
+状态码： 200
+cookies： <RequestsCookieJar[<Cookie aliyungf_tc=AQAAAC/jcx1xIQIA/ulQAbO4VkVGh4y3 for apis.juhe.cn/>]>
+内容： b'{"resultcode":"101","reason":"\xe9\x94\x99\xe8\xaf\xaf\xe7\x9a\x84\xe8\xaf\xb7\xe6\xb1\x82KEY","result":null,"error_code":10001}'
+'''
+# 注意：两者使用的序列不同
 
-print("响应对象json：", requests_post.json())
-print("响应对象格式：", type(requests_post.json()))
-# 通过键值获取值
-print(requests_post.json()['reason'])
-print("响应对象text：", requests_post.text)
-print("响应对象格式：", type(requests_post.text))
+# 将字典对象转换为json字符串
+requests_post = requests.post(url,data= json.dumps(data),headers = header)
+print("url:",requests_post.url)
+print("状态码：", requests_post.status_code)
+print("cookies：", requests_post.cookies)
+print("内容：", requests_post.content)
+print("响应对象：", requests_post.json())
